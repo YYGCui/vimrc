@@ -23,7 +23,11 @@ filetype plugin on
 filetype indent on
 set autoread " auto read when a file is changed from the outside
 set autochdir " always switch to the current file directory
-set backup " make backup files
+"Turn off backup "~" and swap ".swp"
+set nobackup " make backup files
+set nowritebackup
+set noswapfile
+"
 "set backupdir=~/.vim/backup " where to put backup files
 set clipboard+=unnamed " share windows clipboard
 "set directory=~/.vim/tmp " directory to place swap files in
@@ -41,11 +45,12 @@ set hlsearch " highlight search things
 set incsearch " make serach act like search in modern browsers
 "
 set lazyredraw " don't redraw while executing macros
-set magic "set magic on, for regular expressions
-set showmatch "show matching bracets when text indicator is over them
-"
+set magic " set magic on, for regular expressions
+set showmatch " show matching bracets when text indicator is over them
+"Text, tab and indent
 set expandtab
-set shiftwidth=4
+set shiftwidth=4 " auto-indent amount
+set softtabstop=4 " when hitting tab or backspace
 set tabstop=4
 set smarttab
 set autoindent
@@ -54,7 +59,7 @@ set linebreak
 set textwidth=500
 set wrap
 set backspace=eol,start,indent
-" set status line
+"Status line
 set laststatus=2
 " %f - path to the file in the buffer, relative to current directory
 " %F - full path to file in the buffer
@@ -87,7 +92,7 @@ let Tlist_File_Fold_Auto_Close=0 " fold closed other trees
 let Tlist_Sort_Type="name" "orderby
 let Tlist_Use_Right_Window=1 " split to the right side of the screen
 let Tlist_WinWidth=25
-"winManager
+"WinManager
 let g:winManagerWindowLayout='FileExplorer|TagList'
 "nmap <C-W><C-F> :FirstExplorerWindow<cr>
 "nmap <C-W><C-B> :BottomExplorerWindow<cr>
@@ -95,3 +100,6 @@ nmap wm :WMToggle<cr>
 "MiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs=1
 
+"JS Beautify
+let mapleader=","
+nnoremap <F4> :call g:Jsbeautify()<CR>
