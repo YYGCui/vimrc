@@ -36,7 +36,17 @@ set hidden "change buffers without saving
 "set iskeyword+=_,$,@,%,# " none of these are word dividers
 "set mouse=a " use mouse everywhere
 set noerrorbells
-set whichwrap=b,s,h,l,<,>,~,[,] "everything wraps
+set whichwrap=b,s,h,l,<,>,~,[,] "Wrap movement: everything wraps
+"             | | | | | | | | |
+"             | | | | | | | | +-- allow cursor key <right> in "Insert/Replace" mode
+"             | | | | | | | +-- allow cursor key <left> in "Insert/Replace" mode
+"             | | | | | | +-- allow switch case key <~> in "Normal" mode
+"             | | | | | +-- allow cursor key <right> in "Normal/Visual" mode
+"             | | | | +-- allow cursor key <left> in "Normal/Visual" mode
+"             | | | +-- allow cursor key <l> in "Normal/Visual" mode
+"             | | +-- allow cursor key <h> in "Normal/Visual" mode
+"             | +-- allow space key <space> in "Normal/Visual" mode
+"             +-- allow backspace key <backspace> in "Normal/Visual" mode
 set wildmenu " turn on command line completion whild style
 "
 set ignorecase " ignore case when searching
@@ -103,3 +113,4 @@ let g:miniBufExplMapCTabSwitchBufs=1
 "JS Beautify
 let mapleader=","
 nnoremap <F4> :call g:Jsbeautify()<CR>
+
